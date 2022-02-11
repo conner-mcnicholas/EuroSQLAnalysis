@@ -1,6 +1,7 @@
 CREATE VIEW subsq AS SELECT DISTINCT `match_no`,`time_in_out`  FROM `player_in_out`;
 SELECT `match_no`,`time_in_out`,ROW_NUMBER() OVER ()  FROM subsq ORDER BY `match_no`,`time_in_out`;
-/*
+/*match_no is corrupted with ﻿ZERO WIDTH NO-BREAK SPACE char, so have to copy-paste from myPHPAdmin
+and put in quotes for tables where it's used.
 +-------------+-------------+----------------------+
 | ﻿match_no   | time_in_out | ROW_NUMBER() OVER () |
 +-------------+-------------+----------------------+
