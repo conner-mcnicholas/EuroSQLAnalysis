@@ -13,3 +13,5 @@ to add extra 0's in the venue_id and referee_id columns, as they were chronicall
 7. The file build_all_tables.sql is imported into euro_cup_2016 database within phpMyAdmin mySQL UI (creates tables based on all csv files in data dir).
 8. The csv files in data/justdata are imported into each individual table. All columns are created as varchar(N) where N is the max number of chars in each column of the table's csv file.
 9. This database is then ready to query.  Image of this database was exported from phpMyAdmin to create euro_cup_2016.sql.  
+
+## Solutions for each question can be found in question_solutions directory.
