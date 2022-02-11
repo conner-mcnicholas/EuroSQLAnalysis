@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 11, 2022 at 12:30 AM
+-- Generation Time: Feb 11, 2022 at 03:50 AM
 -- Server version: 8.0.28-0ubuntu0.20.04.3
 -- PHP Version: 7.4.3
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `asst_referee_mast` (
-  `﻿ass_ref_id` varchar(5) DEFAULT NULL,
+  `ass_ref_id` varchar(5) DEFAULT NULL,
   `ass_ref_name` varchar(24) DEFAULT NULL,
   `country_id` varchar(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -38,7 +38,7 @@ CREATE TABLE `asst_referee_mast` (
 -- Dumping data for table `asst_referee_mast`
 --
 
-INSERT INTO `asst_referee_mast` (`﻿ass_ref_id`, `ass_ref_name`, `country_id`) VALUES
+INSERT INTO `asst_referee_mast` (`ass_ref_id`, `ass_ref_name`, `country_id`) VALUES
 ('80034', 'Tomas Mokrusch', '1205'),
 ('80038', 'Martin Wilczek', '1205'),
 ('80004', 'Simon Beck', '1206'),
@@ -85,7 +85,7 @@ INSERT INTO `asst_referee_mast` (`﻿ass_ref_id`, `ass_ref_name`, `country_id`) 
 --
 
 CREATE TABLE `coach_mast` (
-  `﻿coach_id` varchar(4) DEFAULT NULL,
+  `coach_id` varchar(4) DEFAULT NULL,
   `coach_name` varchar(19) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -93,7 +93,7 @@ CREATE TABLE `coach_mast` (
 -- Dumping data for table `coach_mast`
 --
 
-INSERT INTO `coach_mast` (`﻿coach_id`, `coach_name`) VALUES
+INSERT INTO `coach_mast` (`coach_id`, `coach_name`) VALUES
 ('5550', 'Gianni De Biasi'),
 ('5551', 'Marcel Koller'),
 ('5552', 'Marc Wilmots'),
@@ -127,7 +127,7 @@ INSERT INTO `coach_mast` (`﻿coach_id`, `coach_name`) VALUES
 --
 
 CREATE TABLE `goal_details` (
-  `﻿goal_id` varchar(3) DEFAULT NULL,
+  `goal_id` varchar(3) DEFAULT NULL,
   `match_no` varchar(2) DEFAULT NULL,
   `player_id` varchar(6) DEFAULT NULL,
   `team_id` varchar(4) DEFAULT NULL,
@@ -142,7 +142,7 @@ CREATE TABLE `goal_details` (
 -- Dumping data for table `goal_details`
 --
 
-INSERT INTO `goal_details` (`﻿goal_id`, `match_no`, `player_id`, `team_id`, `goal_time`, `goal_type`, `play_stage`, `goal_schedule`, `goal_half`) VALUES
+INSERT INTO `goal_details` (`goal_id`, `match_no`, `player_id`, `team_id`, `goal_time`, `goal_type`, `play_stage`, `goal_schedule`, `goal_half`) VALUES
 ('1', '1', '160159', '1207', '57', 'N', 'G', 'NT', '2'),
 ('2', '1', '160368', '1216', '65', 'P', 'G', 'NT', '2'),
 ('3', '1', '160154', '1207', '89', 'N', 'G', 'NT', '2'),
@@ -259,7 +259,7 @@ INSERT INTO `goal_details` (`﻿goal_id`, `match_no`, `player_id`, `team_id`, `g
 --
 
 CREATE TABLE `match_captain` (
-  `﻿match_no` varchar(2) DEFAULT NULL,
+  `match_no` varchar(2) DEFAULT NULL,
   `team_id` varchar(4) DEFAULT NULL,
   `player_captain` varchar(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -268,7 +268,7 @@ CREATE TABLE `match_captain` (
 -- Dumping data for table `match_captain`
 --
 
-INSERT INTO `match_captain` (`﻿match_no`, `team_id`, `player_captain`) VALUES
+INSERT INTO `match_captain` (`match_no`, `team_id`, `player_captain`) VALUES
 ('1', '1207', '160140'),
 ('1', '1216', '160349'),
 ('2', '1201', '160013'),
@@ -379,7 +379,7 @@ INSERT INTO `match_captain` (`﻿match_no`, `team_id`, `player_captain`) VALUES
 --
 
 CREATE TABLE `match_details` (
-  `﻿match_no` varchar(2) DEFAULT NULL,
+  `match_no` varchar(2) DEFAULT NULL,
   `play_stage` varchar(1) DEFAULT NULL,
   `team_id` varchar(4) DEFAULT NULL,
   `win_lose` varchar(1) DEFAULT NULL,
@@ -394,7 +394,7 @@ CREATE TABLE `match_details` (
 -- Dumping data for table `match_details`
 --
 
-INSERT INTO `match_details` (`﻿match_no`, `play_stage`, `team_id`, `win_lose`, `decided_by`, `goal_score`, `penalty_score`, `ass_ref`, `player_gk`) VALUES
+INSERT INTO `match_details` (`match_no`, `play_stage`, `team_id`, `win_lose`, `decided_by`, `goal_score`, `penalty_score`, `ass_ref`, `player_gk`) VALUES
 ('1', 'G', '1207', 'W', 'N', '2', '', '80016', '160140'),
 ('1', 'G', '1216', 'L', 'N', '1', '', '80020', '160348'),
 ('2', 'G', '1201', 'L', 'N', '0', '', '80003', '160001'),
@@ -505,12 +505,12 @@ INSERT INTO `match_details` (`﻿match_no`, `play_stage`, `team_id`, `win_lose`,
 --
 
 CREATE TABLE `match_mast` (
-  `match_no` int DEFAULT NULL,
+  `match_no` varchar(2) DEFAULT NULL,
   `play_stage` varchar(1) DEFAULT NULL,
   `play_date` varchar(10) DEFAULT NULL,
   `results` varchar(4) DEFAULT NULL,
   `decided_by` varchar(1) DEFAULT NULL,
-  `goal_score` varchar(3) DEFAULT NULL,
+  `goal_score` varchar(6) DEFAULT NULL,
   `venue_id` varchar(5) DEFAULT NULL,
   `referee_id` varchar(5) DEFAULT NULL,
   `audence` varchar(5) DEFAULT NULL,
@@ -524,57 +524,57 @@ CREATE TABLE `match_mast` (
 --
 
 INSERT INTO `match_mast` (`match_no`, `play_stage`, `play_date`, `results`, `decided_by`, `goal_score`, `venue_id`, `referee_id`, `audence`, `plr_of_match`, `stop1_sec`, `stop2_sec`) VALUES
-(1, 'G', '216-6-11', 'WIN', 'N', '1-2', '20008', '70007', '75113', '16154', '131', '242'),
-(2, 'G', '216-6-11', 'WIN', 'N', '0-1', '20002', '70012', '3385', '16476', '61', '182'),
-(3, 'G', '216-6-11', 'WIN', 'N', '1-2', '20001', '70017', '37831', '16540', '64', '268'),
-(4, 'G', '216-6-12', 'DRAW', 'N', '1-1', '20005', '70011', '62343', '16128', '0', '185'),
-(5, 'G', '216-6-12', 'WIN', 'N', '0-1', '20007', '70006', '43842', '160084', '125', '325'),
-(6, 'G', '216-6-12', 'WIN', 'N', '1-0', '20006', '70014', '33742', '16291', '2', '246'),
-(7, 'G', '216-6-13', 'WIN', 'N', '2-0', '20003', '70002', '4335', '16176', '89', '188'),
-(8, 'G', '216-6-13', 'WIN', 'N', '1-0', '20010', '70009', '29400', '16429', '360', '182'),
-(9, 'G', '216-6-13', 'DRAW', 'N', '1-1', '20008', '70010', '73419', '16335', '67', '194'),
-(10, 'G', '216-6-14', 'WIN', 'N', '0-2', '20004', '70005', '55408', '16244', '63', '189'),
-(11, 'G', '216-6-14', 'WIN', 'N', '0-2', '20001', '70018', '34424', '16197', '61', '35'),
-(12, 'G', '216-6-15', 'DRAW', 'N', '1-1', '20009', '70004', '38742', '16320', '15', '284'),
-(13, 'G', '216-6-15', 'WIN', 'N', '2-1', '20003', '70001', '38989', '1645', '62', '189'),
-(14, 'G', '216-6-15', 'DRAW', 'N', '1-1', '20007', '70015', '43576', '16477', '74', '26'),
-(15, 'G', '216-6-16', 'WIN', 'N', '2-0', '20005', '70013', '63670', '16154', '71', '374'),
-(16, 'G', '216-6-16', 'WIN', 'N', '1-2', '20002', '70003', '3433', '16540', '62', '212'),
-(17, 'G', '216-6-16', 'WIN', 'N', '0-2', '20004', '70016', '5143', '16262', '7', '411'),
-(18, 'G', '216-6-17', 'DRAW', 'N', '0-0', '20008', '70008', '73648', '16165', '6', '208'),
-(19, 'G', '216-6-17', 'WIN', 'N', '1-0', '20010', '70007', '29600', '16248', '2', '264'),
-(20, 'G', '216-6-17', 'DRAW', 'N', '2-2', '20009', '70005', '38376', '160086', '71', '280'),
-(21, 'G', '216-6-18', 'WIN', 'N', '3-0', '20006', '70010', '33409', '16429', '84', '120'),
-(22, 'G', '216-6-18', 'WIN', 'N', '3-0', '20001', '70004', '39493', '16064', '11', '180'),
-(23, 'G', '216-6-18', 'DRAW', 'N', '1-1', '20005', '70015', '60842', '16230', '61', '280'),
-(24, 'G', '216-6-19', 'DRAW', 'N', '0-0', '20007', '70011', '44291', '16314', '3', '200'),
-(25, 'G', '216-6-20', 'WIN', 'N', '0-1', '20004', '70016', '49752', '16005', '125', '328'),
-(26, 'G', '216-6-20', 'DRAW', 'N', '0-0', '20003', '70001', '45616', '16463', '60', '122'),
-(27, 'G', '216-6-21', 'WIN', 'N', '0-3', '20010', '70006', '28840', '16544', '62', '119'),
-(28, 'G', '216-6-21', 'DRAW', 'N', '0-0', '20009', '70012', '3951', '16392', '62', '31'),
-(29, 'G', '216-6-21', 'WIN', 'N', '0-1', '20005', '70017', '58874', '16520', '29', '244'),
-(30, 'G', '216-6-21', 'WIN', 'N', '0-1', '20007', '70018', '44125', '16177', '21', '195'),
-(31, 'G', '216-6-22', 'WIN', 'N', '0-2', '20002', '70013', '32836', '1654', '60', '300'),
-(32, 'G', '216-6-22', 'WIN', 'N', '1-2', '20001', '70008', '37245', '160085', '70', '282'),
-(33, 'G', '216-6-22', 'WIN', 'N', '1-2', '20008', '70009', '68714', '16220', '7', '244'),
-(34, 'G', '216-6-22', 'DRAW', 'N', '3-3', '20004', '70002', '55514', '16322', '70', '185'),
-(35, 'G', '216-6-23', 'WIN', 'N', '0-1', '20003', '70014', '44268', '16333', '79', '221'),
-(36, 'G', '216-6-23', 'WIN', 'N', '0-1', '20006', '70003', '3411', '16062', '63', '195'),
-(37, 'R', '216-6-25', 'WIN', 'P', '1-1', '20009', '70005', '38842', '16476', '126', '243'),
-(38, 'R', '216-6-25', 'WIN', 'N', '1-0', '20007', '70002', '44342', '16547', '5', '245'),
-(39, 'R', '216-6-26', 'WIN', 'N', '0-1', '20002', '70012', '33523', '16316', '61', '198'),
-(40, 'R', '216-6-26', 'WIN', 'N', '1-2', '20004', '70011', '56279', '16160', '238', '23'),
-(41, 'R', '216-6-26', 'WIN', 'N', '3-0', '20003', '70009', '44312', '16173', '62', '124'),
-(42, 'R', '216-6-27', 'WIN', 'N', '0-4', '20010', '70010', '28921', '16062', '3', '133'),
-(43, 'R', '216-6-27', 'WIN', 'N', '2-0', '20008', '70004', '76165', '16235', '63', '243'),
-(44, 'R', '216-6-28', 'WIN', 'N', '2-1', '20006', '70001', '3391', '16217', '5', '199'),
-(45, 'Q', '216-07-1', 'WIN', 'P', '1-1', '20005', '70003', '62940', '16316', '58', '181'),
-(46, 'Q', '216-07-2', 'WIN', 'N', '1-3', '20003', '70001', '45936', '16550', '14', '182'),
-(47, 'Q', '216-07-3', 'WIN', 'P', '1-1', '20001', '70007', '38764', '16163', '63', '181'),
-(48, 'Q', '216-07-4', 'WIN', 'N', '2-5', '20008', '70008', '76833', '16159', '16', '125'),
-(49, 'S', '216-07-07', 'WIN', 'N', '2-0', '20004', '70006', '55679', '16322', '2', '181'),
-(50, 'S', '216-07-08', 'WIN', 'N', '2-0', '20005', '70011', '64078', '16160', '126', '275'),
-(51, 'F', '216-07-11', 'WIN', 'N', '1-0', '20008', '70005', '75868', '16307', '161', '181');
+('1', 'G', '216-6-11', 'WIN', 'N', '1-2', '20008', '70007', '75113', '16154', '131', '242'),
+('2', 'G', '216-6-11', 'WIN', 'N', '0-1', '20002', '70012', '3385', '16476', '61', '182'),
+('3', 'G', '216-6-11', 'WIN', 'N', '1-2', '20001', '70017', '37831', '16540', '64', '268'),
+('4', 'G', '216-6-12', 'DRAW', 'N', '1-1', '20005', '70011', '62343', '16128', '0', '185'),
+('5', 'G', '216-6-12', 'WIN', 'N', '0-1', '20007', '70006', '43842', '160084', '125', '325'),
+('6', 'G', '216-6-12', 'WIN', 'N', '1-0', '20006', '70014', '33742', '16291', '2', '246'),
+('7', 'G', '216-6-13', 'WIN', 'N', '2-0', '20003', '70002', '4335', '16176', '89', '188'),
+('8', 'G', '216-6-13', 'WIN', 'N', '1-0', '20010', '70009', '29400', '16429', '360', '182'),
+('9', 'G', '216-6-13', 'DRAW', 'N', '1-1', '20008', '70010', '73419', '16335', '67', '194'),
+('10', 'G', '216-6-14', 'WIN', 'N', '0-2', '20004', '70005', '55408', '16244', '63', '189'),
+('11', 'G', '216-6-14', 'WIN', 'N', '0-2', '20001', '70018', '34424', '16197', '61', '35'),
+('12', 'G', '216-6-15', 'DRAW', 'N', '1-1', '20009', '70004', '38742', '16320', '15', '284'),
+('13', 'G', '216-6-15', 'WIN', 'N', '2-1', '20003', '70001', '38989', '1645', '62', '189'),
+('14', 'G', '216-6-15', 'DRAW', 'N', '1-1', '20007', '70015', '43576', '16477', '74', '26'),
+('15', 'G', '216-6-16', 'WIN', 'N', '2-0', '20005', '70013', '63670', '16154', '71', '374'),
+('16', 'G', '216-6-16', 'WIN', 'N', '1-2', '20002', '70003', '3433', '16540', '62', '212'),
+('17', 'G', '216-6-16', 'WIN', 'N', '0-2', '20004', '70016', '5143', '16262', '7', '411'),
+('18', 'G', '216-6-17', 'DRAW', 'N', '0-0', '20008', '70008', '73648', '16165', '6', '208'),
+('19', 'G', '216-6-17', 'WIN', 'N', '1-0', '20010', '70007', '29600', '16248', '2', '264'),
+('20', 'G', '216-6-17', 'DRAW', 'N', '2-2', '20009', '70005', '38376', '160086', '71', '280'),
+('21', 'G', '216-6-18', 'WIN', 'N', '3-0', '20006', '70010', '33409', '16429', '84', '120'),
+('22', 'G', '216-6-18', 'WIN', 'N', '3-0', '20001', '70004', '39493', '16064', '11', '180'),
+('23', 'G', '216-6-18', 'DRAW', 'N', '1-1', '20005', '70015', '60842', '16230', '61', '280'),
+('24', 'G', '216-6-19', 'DRAW', 'N', '0-0', '20007', '70011', '44291', '16314', '3', '200'),
+('25', 'G', '216-6-20', 'WIN', 'N', '0-1', '20004', '70016', '49752', '16005', '125', '328'),
+('26', 'G', '216-6-20', 'DRAW', 'N', '0-0', '20003', '70001', '45616', '16463', '60', '122'),
+('27', 'G', '216-6-21', 'WIN', 'N', '0-3', '20010', '70006', '28840', '16544', '62', '119'),
+('28', 'G', '216-6-21', 'DRAW', 'N', '0-0', '20009', '70012', '3951', '16392', '62', '31'),
+('29', 'G', '216-6-21', 'WIN', 'N', '0-1', '20005', '70017', '58874', '16520', '29', '244'),
+('30', 'G', '216-6-21', 'WIN', 'N', '0-1', '20007', '70018', '44125', '16177', '21', '195'),
+('31', 'G', '216-6-22', 'WIN', 'N', '0-2', '20002', '70013', '32836', '1654', '60', '300'),
+('32', 'G', '216-6-22', 'WIN', 'N', '1-2', '20001', '70008', '37245', '160085', '70', '282'),
+('33', 'G', '216-6-22', 'WIN', 'N', '1-2', '20008', '70009', '68714', '16220', '7', '244'),
+('34', 'G', '216-6-22', 'DRAW', 'N', '3-3', '20004', '70002', '55514', '16322', '70', '185'),
+('35', 'G', '216-6-23', 'WIN', 'N', '0-1', '20003', '70014', '44268', '16333', '79', '221'),
+('36', 'G', '216-6-23', 'WIN', 'N', '0-1', '20006', '70003', '3411', '16062', '63', '195'),
+('37', 'R', '216-6-25', 'WIN', 'P', '1-1', '20009', '70005', '38842', '16476', '126', '243'),
+('38', 'R', '216-6-25', 'WIN', 'N', '1-0', '20007', '70002', '44342', '16547', '5', '245'),
+('39', 'R', '216-6-26', 'WIN', 'N', '0-1', '20002', '70012', '33523', '16316', '61', '198'),
+('40', 'R', '216-6-26', 'WIN', 'N', '1-2', '20004', '70011', '56279', '16160', '238', '23'),
+('41', 'R', '216-6-26', 'WIN', 'N', '3-0', '20003', '70009', '44312', '16173', '62', '124'),
+('42', 'R', '216-6-27', 'WIN', 'N', '0-4', '20010', '70010', '28921', '16062', '3', '133'),
+('43', 'R', '216-6-27', 'WIN', 'N', '2-0', '20008', '70004', '76165', '16235', '63', '243'),
+('44', 'R', '216-6-28', 'WIN', 'N', '2-1', '20006', '70001', '3391', '16217', '5', '199'),
+('45', 'Q', '216-07-1', 'WIN', 'P', '1-1', '20005', '70003', '62940', '16316', '58', '181'),
+('46', 'Q', '216-07-2', 'WIN', 'N', '1-3', '20003', '70001', '45936', '16550', '14', '182'),
+('47', 'Q', '216-07-3', 'WIN', 'P', '1-1', '20001', '70007', '38764', '16163', '63', '181'),
+('48', 'Q', '216-07-4', 'WIN', 'N', '2-5', '20008', '70008', '76833', '16159', '16', '125'),
+('49', 'S', '216-07-07', 'WIN', 'N', '2-0', '20004', '70006', '55679', '16322', '2', '181'),
+('50', 'S', '216-07-08', 'WIN', 'N', '2-0', '20005', '70011', '64078', '16160', '126', '275'),
+('51', 'F', '216-07-11', 'WIN', 'N', '1-0', '20008', '70005', '75868', '16307', '161', '181');
 
 -- --------------------------------------------------------
 
@@ -583,7 +583,7 @@ INSERT INTO `match_mast` (`match_no`, `play_stage`, `play_date`, `results`, `dec
 --
 
 CREATE TABLE `penalty_gk` (
-  `﻿match_no` varchar(2) DEFAULT NULL,
+  `match_no` varchar(2) DEFAULT NULL,
   `team_id` varchar(4) DEFAULT NULL,
   `player_gk` varchar(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -592,7 +592,7 @@ CREATE TABLE `penalty_gk` (
 -- Dumping data for table `penalty_gk`
 --
 
-INSERT INTO `penalty_gk` (`﻿match_no`, `team_id`, `player_gk`) VALUES
+INSERT INTO `penalty_gk` (`match_no`, `team_id`, `player_gk`) VALUES
 ('37', '1221', '160463'),
 ('37', '1213', '160278'),
 ('45', '1213', '160278'),
@@ -608,7 +608,7 @@ INSERT INTO `penalty_gk` (`﻿match_no`, `team_id`, `player_gk`) VALUES
 --
 
 CREATE TABLE `penalty_shootout` (
-  `﻿kick_id` varchar(2) DEFAULT NULL,
+  `kick_id` varchar(2) DEFAULT NULL,
   `match_no` varchar(2) DEFAULT NULL,
   `team_id` varchar(4) DEFAULT NULL,
   `player_id` varchar(6) DEFAULT NULL,
@@ -620,7 +620,7 @@ CREATE TABLE `penalty_shootout` (
 -- Dumping data for table `penalty_shootout`
 --
 
-INSERT INTO `penalty_shootout` (`﻿kick_id`, `match_no`, `team_id`, `player_id`, `score_goal`, `kick_no`) VALUES
+INSERT INTO `penalty_shootout` (`kick_id`, `match_no`, `team_id`, `player_id`, `score_goal`, `kick_no`) VALUES
 ('1', '37', '1221', '160467', 'Y', '1'),
 ('2', '37', '1213', '160297', 'Y', '2'),
 ('3', '37', '1221', '160477', 'N', '3'),
@@ -666,7 +666,7 @@ INSERT INTO `penalty_shootout` (`﻿kick_id`, `match_no`, `team_id`, `player_id`
 --
 
 CREATE TABLE `player_booked` (
-  `﻿match_no` varchar(2) DEFAULT NULL,
+  `match_no` varchar(2) DEFAULT NULL,
   `team_id` varchar(4) DEFAULT NULL,
   `player_id` varchar(6) DEFAULT NULL,
   `booking_time` varchar(3) DEFAULT NULL,
@@ -679,7 +679,7 @@ CREATE TABLE `player_booked` (
 -- Dumping data for table `player_booked`
 --
 
-INSERT INTO `player_booked` (`﻿match_no`, `team_id`, `player_id`, `booking_time`, `sent_off`, `play_schedule`, `play_half`) VALUES
+INSERT INTO `player_booked` (`match_no`, `team_id`, `player_id`, `booking_time`, `sent_off`, `play_schedule`, `play_half`) VALUES
 ('1', '1216', '160349', '32', '', 'NT', '1'),
 ('1', '1216', '160355', '45', '', 'NT', '1'),
 ('1', '1207', '160159', '69', 'Y', 'NT', '2'),
@@ -889,7 +889,7 @@ INSERT INTO `player_booked` (`﻿match_no`, `team_id`, `player_id`, `booking_tim
 --
 
 CREATE TABLE `player_in_out` (
-  `﻿match_no` varchar(2) DEFAULT NULL,
+  `match_no` varchar(2) DEFAULT NULL,
   `team_id` varchar(4) DEFAULT NULL,
   `player_id` varchar(6) DEFAULT NULL,
   `in_out` varchar(1) DEFAULT NULL,
@@ -902,7 +902,7 @@ CREATE TABLE `player_in_out` (
 -- Dumping data for table `player_in_out`
 --
 
-INSERT INTO `player_in_out` (`﻿match_no`, `team_id`, `player_id`, `in_out`, `time_in_out`, `play_schedule`, `play_half`) VALUES
+INSERT INTO `player_in_out` (`match_no`, `team_id`, `player_id`, `in_out`, `time_in_out`, `play_schedule`, `play_half`) VALUES
 ('1', '1207', '160151', 'I', '66', 'NT', '2'),
 ('1', '1207', '160160', 'O', '66', 'NT', '2'),
 ('1', '1207', '160161', 'I', '77', 'NT', '2'),
@@ -1497,7 +1497,7 @@ INSERT INTO `player_in_out` (`﻿match_no`, `team_id`, `player_id`, `in_out`, `t
 --
 
 CREATE TABLE `player_mast` (
-  `﻿player_id` varchar(6) DEFAULT NULL,
+  `player_id` varchar(6) DEFAULT NULL,
   `team_id` varchar(4) DEFAULT NULL,
   `jersey_no` varchar(2) DEFAULT NULL,
   `player_name` varchar(22) DEFAULT NULL,
@@ -1511,7 +1511,7 @@ CREATE TABLE `player_mast` (
 -- Dumping data for table `player_mast`
 --
 
-INSERT INTO `player_mast` (`﻿player_id`, `team_id`, `jersey_no`, `player_name`, `posi_to_play`, `dt_of_bir`, `age`, `playing_club`) VALUES
+INSERT INTO `player_mast` (`player_id`, `team_id`, `jersey_no`, `player_name`, `posi_to_play`, `dt_of_bir`, `age`, `playing_club`) VALUES
 ('160001', '1201', '1', 'Etrit Berisha', 'GK', '1989-03-10', '27', 'Lazio'),
 ('160008', '1201', '2', 'Andi Lila', 'DF', '1986-02-12', '30', 'Giannina'),
 ('160016', '1201', '3', 'Ermir Lenjani', 'MF', '1989-08-05', '26', 'Nantes'),
@@ -2072,7 +2072,7 @@ INSERT INTO `player_mast` (`﻿player_id`, `team_id`, `jersey_no`, `player_name`
 --
 
 CREATE TABLE `playing_position` (
-  `﻿position_id` varchar(2) DEFAULT NULL,
+  `position_id` varchar(2) DEFAULT NULL,
   `position_desc` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -2080,7 +2080,7 @@ CREATE TABLE `playing_position` (
 -- Dumping data for table `playing_position`
 --
 
-INSERT INTO `playing_position` (`﻿position_id`, `position_desc`) VALUES
+INSERT INTO `playing_position` (`position_id`, `position_desc`) VALUES
 ('GK', 'Goalkeepers'),
 ('DF', 'Defenders'),
 ('MF', 'Midfielders'),
@@ -2093,7 +2093,7 @@ INSERT INTO `playing_position` (`﻿position_id`, `position_desc`) VALUES
 --
 
 CREATE TABLE `referee_mast` (
-  `﻿referee_id` varchar(5) DEFAULT NULL,
+  `referee_id` varchar(5) DEFAULT NULL,
   `referee_name` varchar(23) DEFAULT NULL,
   `country_id` varchar(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -2102,7 +2102,7 @@ CREATE TABLE `referee_mast` (
 -- Dumping data for table `referee_mast`
 --
 
-INSERT INTO `referee_mast` (`﻿referee_id`, `referee_name`, `country_id`) VALUES
+INSERT INTO `referee_mast` (`referee_id`, `referee_name`, `country_id`) VALUES
 ('70001', 'Damir Skomina', '1225'),
 ('70002', 'Martin Atkinson', '1206'),
 ('70003', 'Felix Brych', '1208'),
@@ -2129,7 +2129,7 @@ INSERT INTO `referee_mast` (`﻿referee_id`, `referee_name`, `country_id`) VALUE
 --
 
 CREATE TABLE `soccer_city` (
-  `﻿city_id` varchar(5) DEFAULT NULL,
+  `city_id` varchar(5) DEFAULT NULL,
   `city` varchar(13) DEFAULT NULL,
   `country_id` varchar(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -2138,7 +2138,7 @@ CREATE TABLE `soccer_city` (
 -- Dumping data for table `soccer_city`
 --
 
-INSERT INTO `soccer_city` (`﻿city_id`, `city`, `country_id`) VALUES
+INSERT INTO `soccer_city` (`city_id`, `city`, `country_id`) VALUES
 ('10001', 'Paris', '1207'),
 ('10002', 'Saint-Denis', '1207'),
 ('10003', 'Bordeaux', '1207'),
@@ -2157,7 +2157,7 @@ INSERT INTO `soccer_city` (`﻿city_id`, `city`, `country_id`) VALUES
 --
 
 CREATE TABLE `soccer_country` (
-  `﻿country_id` varchar(4) DEFAULT NULL,
+  `country_id` varchar(4) DEFAULT NULL,
   `country_abbr` varchar(3) DEFAULT NULL,
   `country_name` varchar(19) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -2166,7 +2166,7 @@ CREATE TABLE `soccer_country` (
 -- Dumping data for table `soccer_country`
 --
 
-INSERT INTO `soccer_country` (`﻿country_id`, `country_abbr`, `country_name`) VALUES
+INSERT INTO `soccer_country` (`country_id`, `country_abbr`, `country_name`) VALUES
 ('1201', 'ALB', 'Albania'),
 ('1202', 'AUT', 'Austria'),
 ('1203', 'BEL', 'Belgium'),
@@ -2204,7 +2204,7 @@ INSERT INTO `soccer_country` (`﻿country_id`, `country_abbr`, `country_name`) V
 --
 
 CREATE TABLE `soccer_team` (
-  `﻿team_id` varchar(4) DEFAULT NULL,
+  `team_id` varchar(4) DEFAULT NULL,
   `team_group` varchar(1) DEFAULT NULL,
   `match_played` varchar(1) DEFAULT NULL,
   `won` varchar(1) DEFAULT NULL,
@@ -2221,7 +2221,7 @@ CREATE TABLE `soccer_team` (
 -- Dumping data for table `soccer_team`
 --
 
-INSERT INTO `soccer_team` (`﻿team_id`, `team_group`, `match_played`, `won`, `draw`, `lost`, `goal_for`, `goal_agnst`, `goal_diff`, `points`, `group_position`) VALUES
+INSERT INTO `soccer_team` (`team_id`, `team_group`, `match_played`, `won`, `draw`, `lost`, `goal_for`, `goal_agnst`, `goal_diff`, `points`, `group_position`) VALUES
 ('1201', 'A', '3', '1', '0', '2', '1', '3', '-2', '3', '3'),
 ('1202', 'F', '3', '0', '1', '2', '1', '4', '-3', '1', '4'),
 ('1203', 'E', '3', '2', '0', '1', '4', '2', '2', '6', '2'),
@@ -2254,7 +2254,7 @@ INSERT INTO `soccer_team` (`﻿team_id`, `team_group`, `match_played`, `won`, `d
 --
 
 CREATE TABLE `soccer_venue` (
-  `﻿venue_id` varchar(5) DEFAULT NULL,
+  `venue_id` varchar(5) DEFAULT NULL,
   `venue_name` varchar(23) DEFAULT NULL,
   `city_id` varchar(5) DEFAULT NULL,
   `aud_capacity` varchar(5) DEFAULT NULL
@@ -2264,7 +2264,7 @@ CREATE TABLE `soccer_venue` (
 -- Dumping data for table `soccer_venue`
 --
 
-INSERT INTO `soccer_venue` (`﻿venue_id`, `venue_name`, `city_id`, `aud_capacity`) VALUES
+INSERT INTO `soccer_venue` (`venue_id`, `venue_name`, `city_id`, `aud_capacity`) VALUES
 ('20001', 'Stade de Bordeaux', '10003', '42115'),
 ('20002', 'Stade Bollaert-Delelis', '10004', '38223'),
 ('20003', 'Stade Pierre Mauroy', '10005', '49822'),
@@ -2279,36 +2279,11 @@ INSERT INTO `soccer_venue` (`﻿venue_id`, `venue_name`, `city_id`, `aud_capacit
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `subs`
--- (See below for the actual view)
---
-CREATE TABLE `subs` (
-`﻿match_no` varchar(2)
-,`time_in_out` varchar(3)
-,`ROW_NUMBER() OVER(
-PARTITION BY ``﻿match_no``
-)` bigint unsigned
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `subsq`
--- (See below for the actual view)
---
-CREATE TABLE `subsq` (
-`﻿match_no` varchar(2)
-,`time_in_out` varchar(3)
-);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `team_coaches`
 --
 
 CREATE TABLE `team_coaches` (
-  `﻿team_id` varchar(4) DEFAULT NULL,
+  `team_id` varchar(4) DEFAULT NULL,
   `coach_id` varchar(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -2316,7 +2291,7 @@ CREATE TABLE `team_coaches` (
 -- Dumping data for table `team_coaches`
 --
 
-INSERT INTO `team_coaches` (`﻿team_id`, `coach_id`) VALUES
+INSERT INTO `team_coaches` (`team_id`, `coach_id`) VALUES
 ('1201', '5550'),
 ('1202', '5551'),
 ('1203', '5552'),
@@ -2342,26 +2317,6 @@ INSERT INTO `team_coaches` (`﻿team_id`, `coach_id`) VALUES
 ('1222', '5572'),
 ('1223', '5573'),
 ('1224', '5574');
-
--- --------------------------------------------------------
-
---
--- Structure for view `subs`
---
-DROP TABLE IF EXISTS `subs`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`conner`@`localhost` SQL SECURITY DEFINER VIEW `subs`  AS  select `player_in_out`.`﻿match_no` AS `﻿match_no`,`player_in_out`.`time_in_out` AS `time_in_out`,row_number() OVER (PARTITION BY `player_in_out`.`﻿match_no` )  AS `ROW_NUMBER() OVER(
-PARTITION BY ``﻿match_no``
-)` from `player_in_out` ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `subsq`
---
-DROP TABLE IF EXISTS `subsq`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `subsq`  AS  select distinct `player_in_out`.`﻿match_no` AS `﻿match_no`,`player_in_out`.`time_in_out` AS `time_in_out` from `player_in_out` ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
