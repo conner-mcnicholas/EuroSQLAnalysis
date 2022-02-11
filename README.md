@@ -1,7 +1,7 @@
 # EuroSQLAnalysis
 Advanced SQL Mini Project
 
-Initial state is just data directory
+Initial state is shell scripts and data dir with csv files from https://drive.google.com/file/d/1gbSU9bjpler1y5lHo6koVa5YSI1J2MRk/view?usp=sharing
 
 1. Running ./create_table_list.sh creates list of tables/files to be used in downstream scripts.
 2. Running ./build_all_tables.sh creates build_all_tables.sql
