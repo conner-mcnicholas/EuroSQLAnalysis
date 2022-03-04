@@ -1,5 +1,5 @@
-select player_name as liverpool_player,posi_to_play as position,dt_of_bir as birthday,age, country_n
-ame as national_team from player_mast as p left join soccer_country as s on p.team_id = s.country_id where
+SELECT player_name AS liverpool_player,posi_to_play AS position,dt_of_bir AS birthday,age, country_n
+ame AS national_team FROM player_mast AS p, soccer_country AS s WHERE p.team_id = s.country_id WHERE
 playing_club = 'Liverpool';
 /*
 +-------------------+----------+------------+------+---------------+
