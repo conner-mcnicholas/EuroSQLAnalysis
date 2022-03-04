@@ -1,15 +1,14 @@
 /*
 19. Write a SQL query to find the number of captains who were also goalkeepers.
 */
-SELECT p.posi_to_play,COUNT(m.player_captain) AS num_caps
-FROM match_captain m LEFT JOIN
-player_mast p ON p.player_id = m.player_captain
-WHERE posi_to_play = 'DF'
-GROUP BY 1;
+SELECT COUNT(DISTINCT mc.player_captain) AS caps
+FROM euro_cup_2016.match_captain AS mc, euro_cup_2016.match_details AS md
+WHERE md.match_no = mc.match_no
+AND md.player_gk = mc.player_captain;
 /*
-+--------------+----------+
-| posi_to_play | num_caps |
-+--------------+----------+
-| DF           |       40 |
-+--------------+----------+
++------+
+| caps |
++------+
+|    4 |
++------+
 */
