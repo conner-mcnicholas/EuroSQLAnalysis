@@ -1,6 +1,6 @@
 SELECT player_name AS liverpool_player,posi_to_play AS position,dt_of_bir AS birthday,age, country_n
-ame AS national_team FROM player_mast AS p, soccer_country AS s WHERE p.team_id = s.country_id WHERE
-playing_club = 'Liverpool';
+ame AS national_team FROM player_mast AS p, soccer_country AS s WHERE p.team_id = s.country_id AND
+p.playing_club = 'Liverpool';
 /*
 +-------------------+----------+------------+------+---------------+
 | liverpool_player  | position | birthday   | age  | national_team |
