@@ -4,7 +4,7 @@ Advanced SQL Mini Project
 Initial state is shell scripts and data dir with csv files from https://drive.google.com/file/d/1gbSU9bjpler1y5lHo6koVa5YSI1J2MRk/view?usp=sharing
 
 1. Running ./create_table_list.sh creates list of tables/files tablenames.txt to be used in downstream scripts.
-2. Running ./build_all_tables.sh creates build_all_tables.sql
+2. Running ./build_all_tables.sh executes python script data/build_create_table_statement.py using the csv filenames to create build_all_tables.sql
 3. Running ./remove_col_headers.sh creates copies of csv files in data/justdata that lack column headers, which would break their import.
 4. Running ./fix_match_goals.sh cleans the corrupted goal data (1 goal - Jan, 2 - Feb, etc).  
 5. Running fix_uFEFF_col_char.sh  removes the unicode 'ZERO WIDTH NO-BREAK SPACE' char that precedes all of the primary key id columns, thus making querying incredibly cumbersome.  
