@@ -15,3 +15,5 @@ to add extra 0's in the venue_id and referee_id columns, as they were chronicall
 9. This database is then ready to query.  Image of this database was exported from phpMyAdmin to create euro_cup_2016.sql.  
 
 ## Solutions for each question can be found in question_solutions directory.
+
+![alt text](https://github.com/conner-mcnicholas/EuroSQLAnalysis/blob/main/euro.png?raw=true)
